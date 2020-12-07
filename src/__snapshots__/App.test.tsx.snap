@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders the component 1`] = `
-<div>
-  TODO: add dashboard here
+<div
+  className="appContainer"
+>
+  <Dashboard
+    title="User Hobbies"
+  />
 </div>
 `;
