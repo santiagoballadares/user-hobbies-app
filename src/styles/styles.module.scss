@@ -1,5 +1,9 @@
 @import './variables.scss';
 
+button:hover {
+  cursor: pointer;
+}
+
 .appContainer {
   display: flex;
   justify-content: center;
@@ -37,13 +41,18 @@
 
 .users {
   border-right: 1px solid $black;
+  border-bottom: 1px solid $black;
+
+  @media only screen and (min-width: 768px) {
+    border-bottom: unset;
+  }
 }
 
 .userList {
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 200px;
+  max-height: 80vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -56,6 +65,11 @@
   &:hover {
     border: 1px solid $grayWeb;
     background-color: $lightGray;
+  }
+
+  &.selected {
+    border: 1px solid $davysGrey;
+    background-color: $tan;
   }
 }
 
@@ -71,7 +85,42 @@
   }
 }
 
-.details {
+.emptyDetails {
   background-color: $lightGray;
+  min-height: 50vh;
   padding: 0 5px;
+}
+
+.details {
+  background-color: $white;
+  padding: 0 5px;
+}
+
+.hobbiesList {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.hobbyListItem {
+  display: grid;
+  grid-template-columns: repeat(3, 30%) 10%;
+  font-size: 1.8rem;
+  padding: 8px 4px;
+  width: auto;
+}
+
+.addHobbyForm {
+  display: flex;
+  padding: 10px 5px;
+  width: auto;
+  input,
+  select {
+    width: 100%;
+    margin-right: 10px;
+  }
+
 }

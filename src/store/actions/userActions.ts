@@ -1,16 +1,16 @@
 import * as userActionTypes from './userTypes';
 
 const mockedUsers = [
-  { id: 1, name: 'Ian' },
-  { id: 2, name: 'Stephanie' },
-  { id: 3, name: 'Steven' },
-  { id: 4, name: 'Jimmy' },
-  { id: 5, name: 'Chuck' },
-  { id: 6, name: 'Sandra' },
-  { id: 7, name: 'James' },
-  { id: 8, name: 'Anne' },
-  { id: 9, name: 'Joe' },
-  { id: 10, name: 'Alice' },
+  { id: 1, name: 'Ian', hobbies: [{ id: 1, description: 'Playing music', passion: 'High', year: 1960 }] },
+  { id: 2, name: 'Stephanie', hobbies: [{ id: 1, description: 'Photography', passion: 'Very High', year: 2015 }, { id: 2, description: 'Trraveling', passion: 'High', year: 2010 }] },
+  { id: 3, name: 'Steven', hobbies: [{ id: 1, description: 'Hiking', passion: 'Medium', year: 2016 }] },
+  { id: 4, name: 'Jimmy', hobbies: [] },
+  { id: 5, name: 'Chuck', hobbies: [] },
+  { id: 6, name: 'Sandra', hobbies: [] },
+  { id: 7, name: 'James', hobbies: [] },
+  { id: 8, name: 'Anne', hobbies: [] },
+  { id: 9, name: 'Joe', hobbies: [] },
+  { id: 10, name: 'Alice', hobbies: [] },
 ];
 
 export function fetchUsers() {
@@ -18,7 +18,7 @@ export function fetchUsers() {
     type: userActionTypes.FETCH_USERS,
     payload: { users: mockedUsers },
   };
-  return (dispatch: DispatchType) => dispatch(action);
+  return (dispatch: UserDispatchType) => dispatch(action);
 }
 
 export function addUser(user: IUser) {
@@ -26,7 +26,7 @@ export function addUser(user: IUser) {
     type: userActionTypes.ADD_USER,
     payload: { user },
   };
-  return (disptach: DispatchType) => disptach(action);
+  return (disptach: UserDispatchType) => disptach(action);
 }
 
 export function selectUser(user: IUser) {
@@ -34,5 +34,5 @@ export function selectUser(user: IUser) {
     type: userActionTypes.SELECT_USER,
     payload: { user },
   };
-  return (disptach: DispatchType) => disptach(action);
+  return (disptach: UserDispatchType) => disptach(action);
 }

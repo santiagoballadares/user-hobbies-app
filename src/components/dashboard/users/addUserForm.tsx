@@ -15,11 +15,11 @@ export class addUserForm extends React.Component<Props, ClassState> {
     this.state = {
       name: '',
     };
-    this.handdleAdd = this.handdleAdd.bind(this);
-    this.handdleChange = this.handdleChange.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handdleAdd() {
+  handleAdd() {
     const { name } = this.state;
     if (!name) {
       return;
@@ -27,24 +27,25 @@ export class addUserForm extends React.Component<Props, ClassState> {
     const user: IUser = {
       id: +(new Date()),
       name,
+      hobbies: []
     };
     this.props.addUser(user);
     this.setState({ name: '' });
   }
 
-  handdleChange(event: any) {
+  handleChange(event: any) {
     this.setState({ name: event.target.value });
   }
 
   renderNameInput() {
     return (
-      <input value={this.state.name} onChange={this.handdleChange} />
+      <input value={this.state.name} onChange={this.handleChange} />
     )
   }
 
   renderAddButton() {
     return (
-      <button onClick={this.handdleAdd} disabled={!this.state.name}>Add</button>
+      <button onClick={this.handleAdd} disabled={!this.state.name}>Add</button>
     );
   }
 

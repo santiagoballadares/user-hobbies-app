@@ -10,7 +10,7 @@ const store = createStore(
   initialStore,
   compose(
     applyMiddleware(...middleware),
-    composeWithDevTools(),
+    //composeWithDevTools(), // It's working only with firefox
   ),
 );
 

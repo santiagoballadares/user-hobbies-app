@@ -1,18 +1,29 @@
 import * as React from 'react';
-import User from './user';
+import UserItem from './userItem';
 
 import styles from '../../../styles/styles.module.scss';
 
 interface Props {
   users: IUser[],
+  selectedUser: IUser,
+  selectUser: (user: IUser) => void,
 }
 interface ClassState {
 }
 
 export class UsersList extends React.Component<Props, ClassState> {
   renderUsers() {
-    return this.props.users.map(user => {
-      return <User key={user.id} user={user} />;
+    const { users, selectedUser } = this.props;
+    return users.map(user => {
+      const isSelected = selectedUser ? selectedUser.id === user.id : false;
+      return (
+        <UserItem
+          key={user.id}
+          user={user}
+          isSelected={isSelected}
+          selectUser={this.props.selectUser}
+        />
+      );
     });
   }
 
