@@ -28,3 +28,11 @@ export function addUser(user: IUser) {
   };
   return (disptach: DispatchType) => disptach(action);
 }
+
+export function selectUser(user: IUser) {
+  const action: UserAction = {
+    type: userActionTypes.SELECT_USER,
+    payload: { user },
+  };
+  return (disptach: DispatchType) => disptach(action);
+}

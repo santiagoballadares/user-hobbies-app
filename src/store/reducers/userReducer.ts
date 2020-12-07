@@ -2,6 +2,7 @@ import * as userActionTypes from '../actions/userTypes';
 
 const initialState: UsersState = {
   list: [],
+  selectedUser: null,
 }
 
 const reducer = (
@@ -18,6 +19,11 @@ const reducer = (
       return {
         ...state,
         list: [action.payload.user, ...state.list],
+      };
+    case userActionTypes.SELECT_USER:
+      return {
+        ...state,
+        selectedUser: action.payload.user,
       };
     default:
       return state;

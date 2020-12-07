@@ -5,6 +5,7 @@ interface IUser {
 
 type UsersState = {
   list: IUser[]
+  selectedUser: IUser | null
 }
 
 type UsersAction = {

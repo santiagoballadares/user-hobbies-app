@@ -1,11 +1,17 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchUsers } from '../../store/actions/userActions';
+import UsersList from './usersList';
+import AddUserForm from './addUserForm';
+
+import { fetchUsers, addUser } from '../../../store/actions/userActions';
+
+import styles from '../../../styles/styles.module.scss';
 
 interface Props {
-  fetchUsers: () => void,
   users: IUser[],
+  fetchUsers: () => void,
+  addUser: (user: IUser) => void,
 }
 interface ClassState {
 }
@@ -17,12 +23,9 @@ export class Users extends React.Component<Props, ClassState> {
 
   render() {
     return (
-      <div>
-        {
-          this.props.users.map(user => (
-            <div key={user.id}>{user.name}</div>
-          ))
-        }
+      <div className={styles.users}>
+        <AddUserForm addUser={this.props.addUser} />
+        <UsersList users={this.props.users} />
       </div>
     )
   }
@@ -34,6 +37,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = {
   fetchUsers,
+  addUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

@@ -34,3 +34,44 @@
     grid-template-columns: minmax(150px, 25%) 1fr;
   }
 }
+
+.users {
+  border-right: 1px solid $black;
+}
+
+.userList {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.userListItem {
+  cursor: pointer;
+  font-size: 1.8rem;
+  padding: 8px 4px;
+
+  &:hover {
+    border: 1px solid $grayWeb;
+    background-color: $lightGray;
+  }
+}
+
+.addUserForm {
+  display: flex;
+  padding: 10px 5px;
+  width: auto;
+  input {
+    width: 100%;
+  }
+  button {
+    margin-left: 10px;
+  }
+}
+
+.details {
+  background-color: $lightGray;
+  padding: 0 5px;
+}
